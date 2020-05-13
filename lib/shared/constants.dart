@@ -11,3 +11,4 @@ const textInputDecoration = InputDecoration(
     borderSide: BorderSide(color: Colors.pink, width: 2.0),
   ),
 );
+// ignore: non_constant_identifier_names

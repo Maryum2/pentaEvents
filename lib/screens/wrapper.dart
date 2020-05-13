@@ -1,6 +1,6 @@
 import 'package:ajeeb/models/user.dart';
 import 'package:ajeeb/authenticate/authenticateCustomer.dart';
-import 'package:ajeeb/screens/home.dart';
+import 'package:ajeeb/screens/Customer/homeCust.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class Wrapper extends StatelessWidget {
     if (user == null){
       return Authenticate();
     } else {
-      return Home();
+      return HomeCust();
     }
 
   }

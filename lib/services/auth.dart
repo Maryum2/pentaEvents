@@ -3,6 +3,7 @@
 // ignore: avoid_web_libraries_in_flutter
 //import 'dart:js';
 
+import 'package:ajeeb/services/DatabaseService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:ajeeb/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,7 +36,7 @@ class AuthService {
     return user != null ? EventManager(uid: user.uid) : null;
   }
 
-  // auth change user stream
+  // auth change manager stream
   Stream<EventManager> get eventManager {
     return _auth.onAuthStateChanged
     //.map((FirebaseUser user) => _eventManagerFromFirebaseUser(user));
@@ -66,16 +67,10 @@ class AuthService {
     }
   }
 
-  // register with email and password
-  Future registerWithEmailAndPassword(String email, String password) async {
+  // register user with email and password
+  Future registerUserWithEmailAndPassword(String email, String password) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-//      .then((signedInUser){
-//        UserManagement().storeNewUser(signedInUser,context);
-//      }).catchError((e){
-//
-//        print(e);
-//      });
       FirebaseUser user = result.user;
 
       return _userFromFirebaseUser(user);
@@ -84,6 +79,19 @@ class AuthService {
       return null;
     }
   }
+  //register manager with email and password
+  Future registerManagerWithEmailAndPassword(String email, String password) async {
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      FirebaseUser user = result.user;
+      return _userFromFirebaseUser(user);
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
+
+
 
   // sign out
   Future signOut() async {

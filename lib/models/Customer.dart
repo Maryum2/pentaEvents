@@ -1,11 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class User {
+class Customer {
 
   final String uid;
+  final String email;
+  final String password;
+  final String username;
+  final String cnic;
+  final String phone;
+  final String address;
 
-  User({ this.uid});
+  Customer({ this.uid , this.email, this.password, this.username,
+    this.cnic, this.phone, this.address
+
+  });
 
 
   Future<void> addToDatabase(String name,

@@ -1,6 +1,6 @@
 import 'package:ajeeb/models/eventManager.dart';
 import 'package:ajeeb/authenticate/authenticateEventManager.dart';
-import 'package:ajeeb/screens/home.dart';
+import 'package:ajeeb/screens/EventManager/homeEvent.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class WrapperEvent extends StatelessWidget {
     if (eventManager == null){
       return AuthenticateEventManager();
     } else {
-      return Home();
+      return HomeEvent();
     }
 
   }
